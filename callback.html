@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TikTok OAuth Callback</title>
+</head>
+<body style="font-family:Arial,sans-serif;max-width:760px;margin:40px auto;line-height:1.6;padding:0 16px;">
+  <h1>OAuth Callback Received</h1>
+  <p>This page is used as the TikTok Login Kit redirect URI.</p>
+  <p>If you can read this page after login, redirect URI is configured correctly.</p>
+  <pre id="params"></pre>
+  <script>
+    const q = new URLSearchParams(window.location.search);
+    const data = {};
+    for (const [k,v] of q.entries()) data[k]=v;
+    document.getElementById('params').textContent =
+      JSON.stringify(data, null, 2) || 'No query params found.';
+  </script>
+</body>
+</html>
